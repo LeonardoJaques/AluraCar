@@ -15,7 +15,7 @@ var config = {
 	test: {
 		files: 'test/**/*.test.js'
 	}
-};
+}
 
 var header = ['/**',
 	' * <%= pkg.name %>',
@@ -25,7 +25,6 @@ var header = ['/**',
 	' * @license <%= pkg.license %>',
 	' */',
 	'(function (root, factory) {',
-	'   /* istanbul ignore next */',
 	'	if (typeof define === \'function\' && define.amd) {',
 	'		// AMD. Register as an anonymous module.',
 	'		define([\'string-mask\'], factory);',
@@ -39,7 +38,6 @@ var header = ['/**',
 	'		root.BrM = factory(root.StringMask);',
 	'	}',
 	'}(this, function (StringMask) {',
-	'   /* istanbul ignore if */',
 	'	if (!StringMask) {',
 	'		throw new Error(\'StringMask not found\');',
 	'	}',
@@ -50,7 +48,6 @@ var footer = ['',
 	'		ie: IE,',
 	'		cpf: CPF,',
 	'		cnpj: CNPJ,',
-	'       cnpjBase: CNPJBASE,',
 	'		phone: PHONE,',
 	'		cep: CEP,',
 	'		finance: FINANCE,',
@@ -143,3 +140,22 @@ gulp.task('test-coverage', function(done) {
 		});
 	});
 });
+
+gulp.task('changelog', function(done) {
+	var changelog = require('conventional-changelog');
+
+	var options = {
+		repository: pkg.homepage,
+		version: pkg.version,
+		file: path.join(__dirname, 'CHANGELOG.md')
+	};
+
+	changelog(options, function(err, log) {
+		if (err) {
+			throw err;
+		}
+
+		fs.writeFile(options.file, log, done);
+	});
+});
+

@@ -1,6 +1,6 @@
 {
   "name": "angular-br-filters",
-  "version": "0.7.0",
+  "version": "0.6.0",
   "homepage": "https://github.com/the-darc/angular-br-filters",
   "description": "An Angular library of masks applicable to several Brazilian data.",
   "authors": [
@@ -25,16 +25,16 @@
     "tests"
   ],
   "dependencies": {
-    "br-masks": "~0.5.0"
+    "br-masks": "~0.4.1"
   },
-  "_release": "0.7.0",
+  "_release": "0.6.0",
   "_resolution": {
     "type": "version",
-    "tag": "0.7.0",
-    "commit": "94cfa59b55a01ff2560a6200930b3c7d35b6c991"
+    "tag": "0.6.0",
+    "commit": "532f10ad612c86c19de2b9e3678caf739fef1d13"
   },
   "_source": "https://github.com/the-darc/angular-br-filters.git",
-  "_target": "^0.7.0",
+  "_target": "^0.6.0",
   "_originalSource": "angular-br-filters",
   "_direct": true
 }

@@ -1,21 +1,21 @@
 <ion-view>
-    <ion-header-bar>
-        <h1>Olá, faça seu login</h1>
-    </ion-header-bar>
-     <ion-content>
-         <form ng-submit="realizarLogin()">
-             <div class="list list-inset">
-                 <label class="item item-input">
-                     <input type="text" placeholder="E-mail" ng-model="login.email">
-                     <span class="input-lable"></span>
-                 </label>
-                 <label class="item item-input">
-                        <input type="password" placeholder="Senha" ng-model="login.senha" >
-                        <span class="input-lable"></span>
-                 </label>
-                 <button class="button button-block button-positive" type="submit">Entrar</button>
-            </div> <!-- fim do componente -->
-         </form> <!-- fim do formulário -->
-     </ion-content> <!-- fim da tag content -->
+	<ion-header-bar class="title">
+		<h1>Olá, faça seu login</h1>
+	</ion-header-bar>
+	<ion-content>
+		<form ng-submit="realizarLogin()">
+			<div class="list list-inset">
+				<label class="item item-input">
+					<span class="input-label">Email</span>
+					<input type="text" ng-model="login.email">
+				</label>
+				<label class="item item-input">
+					<span class="input-label">Senha</span>
+					<input type="password" ng-model="login.senha">
+				</label>
 
+				<button class="button button-block button-positive" type="submit" >Entrar</button>
+			</div><!-- fim componente formulario -->
+		</form><!-- fim do formulario -->
+	</ion-content><!-- fim da tag content -->
 </ion-view>
