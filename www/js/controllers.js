@@ -77,7 +77,7 @@ angular.module('starter')
 });
 
 angular.module('starter')
-	   .controller('loginController', function($scope, CarroService, $ionicPopup, $state){
+	   .controller('loginController', function($scope, CarroService, $ionicPopup, $state, $rootScope){
 
 		$scope.login = {};
 
@@ -92,7 +92,10 @@ angular.module('starter')
 			
 			CarroService.realizarLogin(dadosDoLogin)
 						.then(dados => {
-								$state.go('listagem');
+							
+							$state.go('app.listagem');
+							$rootScope.usuario = dados.usuario;
+
 					    },erro => { 
 							$ionicPopup.alert({
 								title: 'Opa!',
@@ -101,15 +104,9 @@ angular.module('starter')
 			});
 		};
 
-
 });
 
-
-
-if(dados.status === 200){
-    $ionicPopup.alert({
-        title: 'Seja bem-vindo',
-        template: 'Login efetuado com sucesso.'
-    });
-    $state.go('listagem');
-}
+angular.module('starter')
+	   .controller('MenuController', function($scope, $rootScope){
+		   $scope.usuarioLogado = $rootScope.usuario;
+	   });
