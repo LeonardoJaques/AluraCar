@@ -1,20 +1,26 @@
 angular.module('starter')
     .service('CarroService', function($http){
 
-        const url = 'https://aluracar.herokuapp.com/'
+        var url = 'https://aluracar.herokuapp.com/';
 
         return {
             obterCarros : function(){
                 return  $http.get(url)
-                              .then(response => response.data);
+                             .then(function (response){ 
+                                  return response.data;
+                              });
             },
-            
-            salvaPedido : function(pedido){
-
+            salvarPedido : function(pedido){
               return  $http.get(url + "salvarpedido", pedido)
-                           .then(resp => "Sucesso.")
+                           .then(function(response){
+                               return "Sucesso.";
+                               });
+            },
+            realizarLogin : function(dadosDoLogin){
+              return  $http.get(url + "login", dadosDoLogin)
+                            .then(response => response.data
+              );
 
-                
             }
         };
 

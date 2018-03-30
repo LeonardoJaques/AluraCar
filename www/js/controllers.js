@@ -53,7 +53,7 @@ angular.module('starter')
 
 		$scope.finalizarPedido = function(){
 
-			let pedidoFinalizado = {
+			var pedidoFinalizado = {
 				params : {
 					carro : $scope.carroFinalizado.nome,
 					preco : $scope.carroFinalizado.preco,
@@ -61,7 +61,7 @@ angular.module('starter')
 					endereco  : $scope.pedido.endereco,
 					email  : $scope.pedido.email
 				} 
-			}
+			};
 
 			CarroService.salvarPedido(pedidoFinalizado).then(function(dados){
 				
@@ -75,3 +75,41 @@ angular.module('starter')
 			});
 		};
 });
+
+angular.module('starter')
+	   .controller('loginController', function($scope, CarroService, $ionicPopup, $state){
+
+		$scope.login = {};
+
+		$scope.realizarLogin = function(){
+			var dadosDoLogin = {
+				
+				params: {
+					email: $scope.login.email,
+					senha: $scope.login.senha
+				}
+			};
+			
+			CarroService.realizarLogin(dadosDoLogin)
+						.then(dados => {
+								$state.go('listagem');
+					    },erro => { 
+							$ionicPopup.alert({
+								title: 'Opa!',
+								template: 'E-mail ou Senha incorretos'
+				});
+			});
+		};
+
+
+});
+
+
+
+if(dados.status === 200){
+    $ionicPopup.alert({
+        title: 'Seja bem-vindo',
+        template: 'Login efetuado com sucesso.'
+    });
+    $state.go('listagem');
+}

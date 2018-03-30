@@ -1,6 +1,11 @@
 {
-  "name": "blank",
+  "name": "AluraCar",
   "version": "0.0.1",
+  "author": { 
+    "name": "Leonardo Jaques", 
+    "email": "jaques.projetos@outlook.com",
+    "url": "leonardojaques.com.br" },
+    
   "description": "An Ionic project",
   "devDependencies": {
     "gulp": "^3.5.6",
