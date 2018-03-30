@@ -1,10 +1,7 @@
 angular.module('starter')
 .controller('ListagemController', function($scope, CarroService){
 
-	CarroService.obterCarros().then(function(dados){
-		$scope.listaDeCarros = dados;
-
-	});
+	CarroService.obterCarros().then(dados => $scope.listaDeCarros = dados);
 
 	// $scope.listaDeCarros = [
 	// 							{"nome" : "BMW 120i", "preco" : 70000},
@@ -51,7 +48,7 @@ angular.module('starter')
 		$scope.pedido = {};
 
 
-		$scope.finalizarPedido = function(){
+		$scope.finalizarPedido = () => {
 
 			var pedidoFinalizado = {
 				params : {
@@ -63,12 +60,12 @@ angular.module('starter')
 				} 
 			};
 
-			CarroService.salvarPedido(pedidoFinalizado).then(function(dados){
+			CarroService.salvarPedido(pedidoFinalizado).then(dados => {
 				
 				$ionicPopup.alert({
 					title: 'Parabéns',
 					template: 'Você acaba de comprar um carro.'
-				}).then(function(){
+				}).then(() => {
 					$state.go('listagem');
 				});
 
@@ -81,7 +78,7 @@ angular.module('starter')
 
 		$scope.login = {};
 
-		$scope.realizarLogin = function(){
+		$scope.realizarLogin = () => {
 			var dadosDoLogin = {
 				
 				params: {
@@ -110,3 +107,20 @@ angular.module('starter')
 	   .controller('MenuController', function($scope, $rootScope){
 		   $scope.usuarioLogado = $rootScope.usuario;
 	   });
+
+angular.module('starter')
+	   .controller('PerfilController', function($scope, $rootScope){
+				$scope.estaEditando = false;  
+				$scope.textoDoBotao = "Editar";
+				$scope.usuarioLogado = $rootScope.usuario;
+				$scope.acaoDoBotao = function(){
+					if ($scope.estaEditando){
+						$scope.estaEditando = false;
+						$scope.textoDoBotao = "Editar";
+					} else {
+						$scope.estaEditando = true;
+						$scope.textoDoBotao = "Salvar";
+					  }
+				};
+	   });
+	   

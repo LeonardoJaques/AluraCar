@@ -18,8 +18,9 @@ angular.module('starter')
             },
             realizarLogin : function(dadosDoLogin){
               return  $http.get(url + "login", dadosDoLogin)
-                            .then(response => response.data
-              );
+                            .then(function (response){ 
+                                        return response.data
+                                    });
 
             }
         };
