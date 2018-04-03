@@ -44,14 +44,45 @@ $stateProvider
 
 .state('app.finalizarpedido',{
 	url : '/finalizarpedido/:carro',
-	
 	views : {
 		'menuContent' : {
 			templateUrl : 'templates/finalizarpedido.html',
 			controller : 'FinalizarPedidoController'
-		}	
+		}
 	}
 })
+
+.state('app.agendamentos', {
+	url: '/agendamentos',
+	views : {
+		'menuContent' : {
+			templateUrl : 'templates/agendamentos.html',
+			controller : 'AgendamentosController'
+		}
+	}
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .state('login', {
 	url : '/login',
